@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
 import { KeyboardAvoidingView, Text, StyleSheet, View, TextInput, TouchableOpacity} from 'react-native'
 import {auth} from '../firebase'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import firebase from '../firebase'
-// import auth from '@react-native-firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('')
@@ -13,7 +10,7 @@ const LoginScreen = () => {
     const handleSignUp = () => {
         // debugger;
         console.log("Hello")
-        const auth = getAuth();
+        //const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
@@ -23,8 +20,7 @@ const LoginScreen = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-  });
-
+    });
 
     }
 
